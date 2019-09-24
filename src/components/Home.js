@@ -13,8 +13,11 @@ export default class Home extends Component {
   }
   componentDidMount() {
     this.props.getVideo();
-    this.props.updateVideo();
-  }
+    
+    setInterval(()=>{
+      this.props.updateVideo();
+ 
+    },5000); }
   routeUser = val => {
     this.props.history.push({
       pathname: `/lesson`,

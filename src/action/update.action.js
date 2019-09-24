@@ -42,21 +42,12 @@ export function updateVideo() {
   return async (dispatch, getState) => {
     dispatch(updateVideoRequest());
     try {
-      const result = await axios.post(
-        "https://api.omnicuris.com/api/userCourse/updateProgress",
-        {
-          body: {
-            accessToken: "78905c92-1ea8-49c0-8649-9b517b662c2c",
-            courseId: 73,
-            duration: 961.236467,
-            isCompleted: false,
-            status: "STARTED",
-            lastViewPoint: 23.451663,
-            widgetId: 1272,
-            widgetType: "CHAPTER"
-          }
-        }
-      );
+      const result=axios({
+        method: 'post',
+        url: url,
+        data: updateData,
+        //config: { headers: {'Content-Type': 'multipart/form-data' }}
+        })
 
       const resultJson = result;
 
